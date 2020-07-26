@@ -23,6 +23,17 @@ import lombok.Data;
 
 public class Supplier {
 	
+	public Supplier(long l, String string, List<Catalogue> catalog) {
+		// TODO Auto-generated constructor stub
+		
+	}
+
+	
+	
+	public Supplier() {
+		
+	}
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

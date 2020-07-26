@@ -22,14 +22,27 @@ import lombok.Data;
 public class Catalogue {
 	
 	
-	    @Id
+	    public Catalogue(Long id,  String sku_name, String sku_description, String brand_name,
+			String brand_description,Supplier supplier) {
+		super();
+		this.id = id;
+		this.supplier = supplier;
+		this.sku_name = sku_name;
+		this.sku_description = sku_description;
+		this.brand_name = brand_name;
+		this.brand_description = brand_description;
+	}
+
+	    
+	    public Catalogue() {
+	    	
+	    }
+		@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    @Column(name = "id")
 	    private Long id;
 	 
-	    @ManyToOne
-	    @JoinColumn(name = "supplier_id", nullable = false)
-	    private Supplier supplier;
+	   
 	    
 	    @Column(name = "sku_name")
 	    private String sku_name;
@@ -42,6 +55,10 @@ public class Catalogue {
 	    
 	    @Column(name = "brand_description")
 	    private String brand_description;
+	    
+	    @ManyToOne
+	    @JoinColumn(name = "supplier_id", nullable = false)
+	    private Supplier supplier;
 
 
 }
